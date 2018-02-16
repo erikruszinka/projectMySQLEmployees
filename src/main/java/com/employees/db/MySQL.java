@@ -21,7 +21,7 @@ public class MySQL {
             Class.forName(driver).newInstance();
             conn = DriverManager.getConnection(url, username, password);
             String query = "SELECT employees.last_name, salaries.salary as ss from employees INNER JOIN salaries " +
-                    "ON employees.emp_no=salaries.emp_no where employees.last_name like 'Ruszinka'";
+                    "ON employees.emp_no=salaries.emp_no where employees.last_name like "'+last_name+'"";
             PreparedStatement ps = conn.prepareStatement(query);
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
