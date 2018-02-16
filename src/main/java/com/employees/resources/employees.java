@@ -10,9 +10,9 @@ public class employees{
     @Path("/salary/{last_name}")
     @Produces(MediaType.APPLICATION_JSON)
 
-    public String getSalary(@PathParam("salary") String salary){
+    public String getSalary(@PathParam("last_name") String last_name){
 
-        String Salary = new MySQL().getSalary(salary);
+        String Salary = new MySQL().getSalary(last_name);
         System.out.println(Salary);
         String result = "{\"salary\":\""+Salary+"\"}";
         System.out.println(result);
